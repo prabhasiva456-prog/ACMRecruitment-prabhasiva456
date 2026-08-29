@@ -1,0 +1,32 @@
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+}
+
+.column {
+    flex: 1;
+    padding: 30px;
+    background-color: lightblue;
+    border: 2px solid #333;
+    text-align: center;
+}
+
+/* Change background below 500px */
+@media (max-width: 499px) {
+    body {
+        background-color: lightyellow;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
