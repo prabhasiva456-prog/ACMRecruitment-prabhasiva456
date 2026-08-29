@@ -1,8 +1,8 @@
-\# Unity Foundations — Neon Survival
+Unity Foundations — Neon Survival
 
 
 
-\## Project description
+Project description
 
 
 
@@ -10,7 +10,7 @@ Neon Survival is a basic interactive 2D Unity scene. The player can move and jum
 
 
 
-\## Features implemented
+Features implemented
 
 
 
@@ -36,7 +36,7 @@ Neon Survival is a basic interactive 2D Unity scene. The player can move and jum
 
 
 
-\## Controls
+Controls
 
 
 
@@ -52,7 +52,7 @@ Neon Survival is a basic interactive 2D Unity scene. The player can move and jum
 
 
 
-\## How to run
+&#x20;How to run
 
 
 
