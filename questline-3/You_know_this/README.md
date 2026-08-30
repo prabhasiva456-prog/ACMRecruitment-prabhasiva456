@@ -98,12 +98,3 @@ The solver processes all regular members, including dotfiles, and prints each la
 
 The script was run successfully against the included input and recovered the token above. The input came from an existing `txtpyc` copy in Downloads. The authenticated challenge page lists an attachment with that name, but byte identity with the current server attachment was not independently verified. The token has not been submitted to CTFd for acceptance.
 
-## Submission placement
-
-Put these files under `questline-N/You_know_this/` in `ACMRecruitment-prabhasiva456`. Replace `N` with the assigned questline number and use the task folder name required by the organizers, if different. Neither was specified in the supplied instructions.
-
-Submit the direct task-folder URL, not the repository root:
-
-```text
-https://github.com/YOUR_GITHUB_USERNAME/ACMRecruitment-prabhasiva456/tree/main/questline-N/You_know_this/
-```
