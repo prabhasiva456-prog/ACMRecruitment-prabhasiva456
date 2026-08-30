@@ -1,0 +1,15 @@
+student_id,name,gender,math_marks,science_marks,english_marks
+101,Aarav,M,78,85,82
+102,Diya,female,92,88,90
+103,Kabir, male ,65,,missing
+104,Meera,F,88,91,86
+105,Rohan,MALE,,72,68
+106,Ananya, Female ,95,94,96
+107,Dev,m,54,60,invalid
+108,Isha,f,81,,79
+109,Arjun,Male,73,76,
+110,Kavya,FEMALE,,89,92
+111,Neel, male,62,67,70
+112,Tara,female ,86,84,88
+101,Aarav,M,78,85,82
+104,Meera,F,88,91,86

@@ -1,0 +1,13 @@
+PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked,Port_Name
+1,1,1,Sample Passenger 01,female,65.0,0,0,SYN001,80,B10,C,Cherbourg
+2,0,1,Sample Passenger 02,male,45.0,1,0,SYN002,60,C20,S,Southampton
+3,1,1,Sample Passenger 03,female,45.0,0,1,SYN003,100,B12,C,Cherbourg
+4,1,1,Sample Passenger 04,male,30.0,0,0,SYN004,70,D15,S,Southampton
+5,0,2,Sample Passenger 05,male,62.0,0,0,SYN005,25,,S,Southampton
+6,1,2,Sample Passenger 06,female,28.0,1,0,SYN006,30,,C,Cherbourg
+7,0,2,Sample Passenger 07,male,40.0,0,0,SYN007,20,,Q,Queenstown
+8,1,2,Sample Passenger 08,female,40.0,0,1,SYN008,35,,S,Southampton
+9,0,3,Sample Passenger 09,male,70.0,0,0,SYN009,8,,Q,Queenstown
+10,0,3,Sample Passenger 10,male,20.0,1,0,SYN010,10,,S,Southampton
+11,1,3,Sample Passenger 11,female,26.0,0,1,SYN011,12,,C,Cherbourg
+12,0,3,Sample Passenger 12,male,26.0,0,0,SYN012,7,,Q,Queenstown
