@@ -1,8 +1,8 @@
-\# Buried\_escape — Forensics Write-up
+Buried_escape — Forensics Write-up
 
 
 
-\## Challenge
+ Challenge
 
 
 
@@ -10,11 +10,11 @@ A suspicious file was recovered from a compromised server. The objective was to 
 
 
 
-\*\*Flag format:\*\* `acm{...}`
+Flag format: `acm{...}`
 
 
 
-\## 1. Inspect the attachment
+1. Inspect the attachment
 
 
 
@@ -46,11 +46,11 @@ Opening the image displays “Server Room Access Log Snapshot,” but no visible
 
 
 
-\## 2. Locate the hidden archive
+ 2. Locate the hidden archive
 
 
 
-The JPEG end marker, `FF D9`, occurs at byte offset \*\*6550\*\*. Immediately after this marker, at offset \*\*6552\*\*, the file contains a ZIP signature:
+The JPEG end marker, `FF D9`, occurs at byte offset 6550. Immediately after this marker, at offset 6552, the file contains a ZIP signature:
 
 
 
@@ -62,7 +62,7 @@ The JPEG end marker, `FF D9`, occurs at byte offset \*\*6550\*\*. Immediately af
 
 
 
-The remaining \*\*1122 bytes\*\* form an appended ZIP archive containing a password-protected file named `flag.pdf`.
+The remaining 1122 bytes form an appended ZIP archive containing a password-protected file named `flag.pdf`.
 
 
 
@@ -70,7 +70,7 @@ This explains why the image appears normal: the image viewer displays the JPEG a
 
 
 
-\## 3. Recover the ZIP password
+3. Recover the ZIP password
 
 
 
@@ -94,11 +94,11 @@ The password successfully decrypted `flag.pdf`, and the ZIP integrity check pass
 
 
 
-\## 4. Extract the flag
+ 4. Extract the flag
 
 
 
-The recovered PDF is titled \*\*“Confidential - Internal Investigation Report.”\*\*
+The recovered PDF is titled “Confidential - Internal Investigation Report.”
 
 
 
@@ -108,7 +108,7 @@ Under “Recovered artifact flag,” it contains:
 
 ```text
 
-acm{f0rensics\_1s\_fun!!!}
+acm{f0rensics_1s_fun!!!}
 
 ```
 
@@ -118,7 +118,7 @@ I confirmed the flag through both PDF text extraction and visual inspection.
 
 
 
-\## Reproduction commands
+Reproduction commands
 
 
 
@@ -152,11 +152,11 @@ The solver saves the JPEG, appended ZIP, and recovered PDF, then prints the PDF 
 
 
 
-\## Result
+ Result
 
 
 
-\*\*Flag:\*\* `acm{f0rensics\_1s\_fun!!!}`
+Flag: `acm{f0rensics_1s_fun!!!}`
 
 
 
