@@ -1,72 +1,29 @@
-Unity Foundations — Neon Survival
+# Unity Foundations
 
+A basic playable 3D Unity scene with a controllable player and physics interactions.
 
+## Features
+- Capsule player with a Rigidbody and Capsule Collider.
+- C# movement using WASD or arrow keys.
+- Ground and a fixed obstacle with colliders.
+- A pushable cube with a Rigidbody.
 
-Project description
+## Controls
+- W / Up arrow: Forward
+- S / Down arrow: Backward
+- A / Left arrow: Left
+- D / Right arrow: Right
 
+## How to Run
+1. Clone or download this repository.
+2. In Unity Hub, add questline-1/unity-foundations/UnityProject.
+3. Use the Unity version listed in UnityProject/ProjectSettings/ProjectVersion.txt.
+4. Open the saved scene in Assets/Scenes.
+5. Press Play and click inside the Game view.
+6. Move into the fixed obstacle to test collisions and into the pushable cube to push it.
 
-
-Neon Survival is a basic interactive 2D Unity scene. The player can move and jump around an arena containing platforms, obstacles, collectibles, hazards, and enemies.
-
-
-
-Features implemented
-
-
-
-\- Playable 2D scene
-
-\- Player GameObject
-
-\- Rigidbody2D physics
-
-\- BoxCollider2D collision detection
-
-\- C# player movement
-
-\- Jump and double-jump movement
-
-\- Platforms and arena walls
-
-\- Interactive collectibles
-
-\- Enemy and hazard collision
-
-\- Camera following the player
-
-
-
-Controls
-
-
-
-\- A/D or Left/Right arrows — Move
-
-\- Space — Jump
-
-\- Space again while airborne — Double jump
-
-\- F or Left Mouse Button — Attack
-
-\- R — Restart after Game Over
-
-
-
-&#x20;How to run
-
-
-
-1\. Install Unity 6 or Unity 2022.3 LTS.
-
-2\. Open Unity Hub.
-
-3\. Click Add or Open.
-
-4\. Select the UnityProject folder.
-
-5\. Open Assets/Scenes/Main.unity or SampleScene.unity.
-
-6\. Wait for Unity to compile the scripts.
-
-7\. Press the Play button.
-
+## Project Structure
+- UnityProject/Assets: Scenes, C# scripts, and assets.
+- UnityProject/Packages: Package dependencies.
+- UnityProject/ProjectSettings: Unity project configuration.
+- Media: Gameplay and Player component screenshots.
