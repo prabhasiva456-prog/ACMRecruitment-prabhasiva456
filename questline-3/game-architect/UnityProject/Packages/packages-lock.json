@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "com.unity.modules.imgui": {
+      "version": "1.0.0",
+      "depth": 0,
+      "dependencies": {},
+      "source": "builtin"
+    },
+    "com.unity.modules.imageconversion": {
+      "version": "1.0.0",
+      "depth": 0,
+      "dependencies": {},
+      "source": "builtin"
+    },
+    "com.unity.modules.physics2d": {
+      "version": "1.0.0",
+      "depth": 0,
+      "dependencies": {},
+      "source": "builtin"
+    },
+    "com.unity.modules.ui": {
+      "version": "1.0.0",
+      "depth": 0,
+      "dependencies": {},
+      "source": "builtin"
+    },
+    "com.unity.modules.screencapture": {
+      "version": "1.0.0",
+      "depth": 0,
+      "dependencies": {},
+      "source": "builtin"
+    },
+    "com.unity.modules.audio": {
+      "version": "1.0.0",
+      "depth": 0,
+      "dependencies": {},
+      "source": "builtin"
+    }
+  }
+}
