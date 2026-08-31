@@ -1,49 +1,76 @@
- Neon Survival — Gameplay Mechanics
+# Neon Survival — Gameplay Mechanics
 
-Neon Survival is a compact 2D arena game built in Unity. Move through the arena, collect energy crystals, avoid or attack chasing enemies, and survive for as long as possible.
+A compact 2D Unity arena game. Collect green energy crystals, avoid the pink floor hazard, and fight enemies while protecting your health. The project demonstrates damage, physics collisions, scoring, HUD updates, Game Over, and restarting.
 
-How to play
+## Gameplay mechanics
 
-- Move: `A` / `D` or Left / Right arrows
-- Jump: `Space` (press again in mid-air for a double jump)
-- Attack: `F` or Left Mouse Button
-- Restart:`R` or the on-screen Restart button after Game Over
-Gameplay mechanics implemented
+| Requirement | Implementation |
+| --- | --- |
+| Player health | Start with 5 HP. Enemy contact or hazard contact deals 1 damage, with 0.6 seconds of invulnerability and flashing feedback. |
+| Enemies and obstacles | Three enemies, solid platforms, arena walls, and a damaging floor hazard. |
+| Collision detection | Rigidbody2D and BoxCollider2D for solid collisions; trigger colliders for crystals; an overlap query for attacks. |
+| Score and collectibles | Each crystal gives 10 points. Defeating an enemy gives 25 points. |
+| Score and health UI | Live score, numeric health, and a health bar. |
+| Game Over | Reaching 0 HP or falling below the arena disables the player and displays the final score. |
+| Restart | Press R or click the Restart button after Game Over to reload the scene, restoring the player, enemies, crystals, health, and score. |
 
-- Player health with damage, brief invulnerability, knockback, and a visual health bar
-- Patrolling/chasing enemy AI that damages the player on contact
-- Solid platforms, arena walls, hazards, and physics-based collision detection
-- Collectible energy crystals worth 10 points each
-- Score and health UI, plus control hints
-- Game Over when health reaches zero or the player falls out of the arena
-- Restart button and keyboard restart
-- Increasing challenge: enemies become faster as the score rises
+## Bonus mechanics
 
-Bonus features
+- **Enemy AI:** patrols when the player is far away, chases within 7 units, and jumps when detecting a wall. Speed increases with score.
+- **Double jump:** two jumps between landings. A third airborne jump is blocked.
+- **Attack system:** a directional, short-range pulse with a 0.38-second cooldown. Enemies take two hits to defeat.
+- **Damage feedback:** brief player knockback and flashing. Movement pauses for 0.18 seconds after a hit so it does not immediately cancel the knockback.
 
-- Enemy AI: enemies patrol until the player approaches, then chase and jump over obstacles
-- Double jump: the player can jump once more while airborne
-- Attack system: a short-range pulse damages enemies; defeated enemies award 25 points
+## Controls
 
- Scripts
+| Input | Action |
+| --- | --- |
+| A / D or Left / Right arrows | Move |
+| Space | Jump; press again in the air to double jump |
+| F or left mouse button | Attack in the facing direction |
+| R after Game Over | Restart |
+| Restart button after Game Over | Restart |
 
-- `GameBootstrap.cs` — constructs the arena, camera, lighting-style background, UI, player, enemies, hazards, and collectibles at runtime
-- `GameManager.cs` — owns score, difficulty scaling, game-over state, UI updates, and restarting
-- `PlayerController.cs` — movement, grounded checks, double jump, attack input, and animation-like squash/tilt feedback
-- `PlayerHealth.cs` — health, damage cooldown, knockback, death, and health-bar synchronization
-- `EnemyAI.cs` — patrol/chase state, obstacle jumping, contact damage, enemy health, and defeat scoring
-- `Collectible.cs` — animated collectible behavior and score awarding
-- `Hazard.cs` — collision damage from spikes
-- `CameraFollow.cs` — smooth camera tracking constrained to the arena
+## Scripts and functionality
 
-Opening the project
+All runtime scripts are in `UnityProject/Assets/Scripts/`.
 
-1. Open the `UnityProject` folder in Unity Hub (Unity 2022.3 LTS or newer is recommended)
-2. Open `Assets/Scenes/Main.unity`
-3. Press Play
+| Script | Responsibility |
+| --- | --- |
+| `GameBootstrap.cs` | Builds the arena, sprites, player, enemies, crystals, camera, and UI. A saved bootstrap component runs on every scene load, including restart. Creates the EventSystem required by the restart button. |
+| `GameManager.cs` | Tracks score and Game Over, updates the HUD, scales difficulty, and reloads the active scene. |
+| `PlayerController.cs` | Reads input in Update; applies movement, ground checks, and jumps in FixedUpdate. Handles attacks and a brief knockback control lock. |
+| `PlayerHealth.cs` | Manages health, damage invulnerability, flashing, knockback, falling out of bounds, and defeat. |
+| `EnemyAI.cs` | Patrol/chase movement, obstacle detection, enemy health, contact damage, and defeat scoring. |
+| `Collectible.cs` | Animates crystals and awards points on player trigger contact. |
+| `Hazard.cs` | Applies damage while the player contacts the floor hazard. |
+| `CameraFollow.cs` | Smoothly follows the player within arena limits. |
 
-The level is intentionally generated in code, so no external art packages or manual inspector setup are required.
+`UnityProject/Assets/Editor/CaptureScreenshot.cs` adds a gameplay capture command to the Unity editor menu.
 
- Gameplay screenshot
+## Run the project
+
+1. Install **Unity 6 Editor 6000.0.82f1** through Unity Hub. This is the version recorded in `ProjectSettings/ProjectVersion.txt`; the scripts use Unity 6's `Rigidbody2D.linearVelocity` API.
+2. Clone/download this repository and add `questline-2/gameplay-mechanics/UnityProject` to Unity Hub.
+3. Allow Unity to restore the declared packages and import assets.
+4. Open **Assets/Scenes/Main.unity**, press **Play**, and click the Game view to focus input.
+5. Keep **Active Input Handling** set to **Both** or **Input Manager (Old)**. The committed setting is Both.
+
+The scene contains a Game Bootstrap object in Edit mode. It creates the playable level when Play starts, so the arena is not visible until then. `Main.unity` is included in the build scene list. No external art downloads are required.
+
+## Gameplay screenshot
 
 ![Neon Survival gameplay](Media/gameplay.png)
+
+This is the existing gameplay capture supplied with the project. To refresh it, enter Play mode and choose **Neon Survival > Capture Gameplay Screenshot**; the image is written to `Media/gameplay.png`.
+
+## Verification checklist
+
+- Move, jump, double jump, land, and jump again; verify that walls/platforms block movement.
+- Touch a crystal: it disappears and score increases by 10.
+- Attack an enemy twice: it disappears and score increases by 25.
+- Touch an enemy or hazard: health decreases, the health bar shrinks, and the player briefly flashes.
+- Lose all health: check that Game Over and the final score are visible.
+- Restart with R, then repeat with the button: check that health is 5, score is 0, and the level, enemies, and crystals return.
+
+The updated runtime scripts compile against the installed Unity 6 assemblies. Full Play-mode verification could not be completed because the local Unity licensing connection failed. The checklist above describes expected behavior, not a claim that every interaction has been tested.
