@@ -1,8 +1,0 @@
-JPEG ends at offset 6552; appended ZIP is 1122 bytes
-Recovered: work\buried\verified\flag.pdf
-Confidential - Internal Investigation Report
-Case ref: INT-2026-0891
-Subject: Data exfiltration incident
-Recovered artifact flag:
-acm{f0rensics_1s_fun!!!}
-
