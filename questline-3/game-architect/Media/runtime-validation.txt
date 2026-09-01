@@ -1,0 +1,13 @@
+Lumen Run runtime smoke checks
+PASS: Start menu state
+PASS: Initial health, score, and progression
+PASS: Player frozen at menu
+PASS: Start button starts timer and gameplay
+PASS: Damage plus invulnerability prevents double damage
+PASS: Pause freezes timer
+PASS: Physics trigger collects first core and awards score
+PASS: Exit stays locked before collecting all cores
+PASS: All cores unlock win and bonuses
+PASS: Restart reconstructs a fresh run
+PASS: Restart restores enemies
+PASS: Falling triggers Game Over
