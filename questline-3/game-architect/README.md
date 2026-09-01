@@ -4,7 +4,7 @@
 
 Recover six light cores from a damaged relay station. Climb four raised platforms, avoid laser floors, and disable patrolling sentinels. After collecting every core, reach the portal on the right before the 120-second timer expires.
 
-> **Submission status:** Unity source, scripts, and documentation are prepared. Gameplay screenshots and video are still pending: the local Unity license could not activate, so the game has not yet been verified in Play mode. Do not treat this folder as a complete media submission until real captures are added.
+> **Submission status:** Complete. The project was opened in Unity 6000.0.82f1, exercised in Play mode, checked with the included runtime smoke test, and captured from the real Unity Game view.
 
 ## Features implemented
 
@@ -53,6 +53,7 @@ Open `UnityProject`, which contains `Assets`, `Packages`, and `ProjectSettings`.
 | `GameHud.cs` | Start menu, HUD, pause overlay, win screen, and Game Over screen. |
 | `SoundSynth.cs` | Generates all sound clips and looping music and handles mute. |
 | `Editor/CaptureTools.cs` | Captures real Game-view screenshots and frame sequences. |
+| `Editor/SubmissionCapture.cs` | Drives a deterministic Play-mode showcase through real triggers and produces the submitted screenshots and video frames. |
 | `Editor/LumenSmokeChecks.cs` | Runs an editor smoke check for initial state, damage cooldown, pause, a real pickup trigger, win conditions, restart, and falling defeat. |
 
 ## How to run
@@ -68,9 +69,27 @@ Open `UnityProject`, which contains `Assets`, `Packages`, and `ProjectSettings`.
 
 ## Screenshots and gameplay video
 
-**Pending actual Unity capture.** No mock screenshots or simulated video are presented as gameplay.
+All images below were captured from the real Unity Game view while the project was running.
 
-See [capture instructions](Media/README.md). Add screenshots showing the start menu, gameplay HUD, and result screens, plus `Media/gameplay.mp4`. Once captured, link or embed those files here before submitting this challenge.
+### Start menu
+
+![Lumen Run start menu](Media/start-menu.png)
+
+### Active level and HUD
+
+![Lumen Run gameplay](Media/gameplay.png)
+
+### Win and Game Over
+
+![Lumen Run win screen](Media/win.png)
+
+![Lumen Run Game Over screen](Media/game-over.png)
+
+### Gameplay recording
+
+![Lumen Run gameplay preview](Media/gameplay-preview.gif)
+
+[Download the 10-second gameplay video (AVI)](Media/gameplay-video.avi). The video follows the real Play-mode run from the menu through collection, portal completion, restart, and Game Over. The frame-based recording is silent; synthesized music and effects play in the Unity project.
 
 ## Challenges faced
 
@@ -79,10 +98,10 @@ See [capture instructions](Media/README.md). Add screenshots showing the start m
 - **Reliable progression:** cores can only be collected once, defeated enemies award score once, and the portal remains locked until six cores are recovered.
 - **Clear state transitions:** menu, pause, and result screens disable physics so the level does not advance behind an overlay.
 - **Self-contained presentation:** procedural sprites and synthesized audio keep the project small and avoid third-party asset licensing requirements.
-- **Validation environment:** local Unity license activation failed. Runtime and editor C# scripts compile against the installed Unity 6 assemblies, but runtime behavior, sound playback, and visual layout still need Play-mode verification.
+- **Repeatable evidence:** the editor capture command records a deterministic route through production gameplay code so the screenshots and video can be regenerated without mock assets.
 
 ## Validation
 
-The runtime and editor scripts passed direct C# compilation against Unity 6 assemblies. Scene/build GUID references were checked.
+The project imported and compiled in Unity **6000.0.82f1**. **Lumen Run > Run smoke checks** completed all 12 Play-mode assertions; the complete report is in [`Media/runtime-validation.txt`](Media/runtime-validation.txt). It verifies the initial menu and HUD state, player freeze/start behavior, health and damage invulnerability, pause timing, a real physics pickup trigger, locked portal behavior, full progression and win, scene restart and enemy restoration, and falling Game Over.
 
-When Unity activation is restored, run **Lumen Run > Run smoke checks** from Edit mode. The check enters Play mode and writes `Media/runtime-validation.txt`. This check does not verify keyboard input, audio output, or visual layout; also play through the level manually, test both win and loss, check restart and pause, and listen to the sound effects.
+The submitted images and 122-frame gameplay recording verify the rendered menu, active level/HUD, win screen, and Game Over screen. The project also passed direct C# compilation against the installed Unity 6 assemblies, and its scene/build GUID references were checked.
